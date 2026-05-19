@@ -6,3 +6,7 @@ coverage/
 *.log
 .env*
 !.env.example
+yuting_resume.md
+website.md
+个人网站资料准备/
+.env
