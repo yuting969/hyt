@@ -12,6 +12,10 @@ import lifepromptImage from '../assets/project-lifeprompt.png';
 import seedplanImage from '../assets/project-seedplan.jpg';
 import insightweaverImage from '../assets/project-insightweaver.png';
 import insightweaverImage2 from '../assets/project-insightweaver-intro.png';
+import anhehu7Image from '../assets/project-anhehu7.jpg';
+import autumnImage from '../assets/project-autumn.png';
+import dunhuangImage from '../assets/project-dunhuang.png';
+import promptBuyImage from "../assets/project-prompt-buy.png";
 import ProjectModal from './ProjectModal';
 
 export default function Portfolio() {
@@ -377,26 +381,39 @@ export default function Portfolio() {
       role: "导演", 
       desc: "像素风美学探索，探索AIGC自动化帧生成", 
       image: lifepromptImage,
-      icon: <PenTool size={16} /> 
+      icon: <PenTool size={16} />,
+      link: "https://cropgif.net/videos/1779195089536-cac103e5-9c5a-45ce-9053-b6cb5b9b76c8.mp4"
     },
     { 
       title: "《安和路7号》", 
       role: "主创", 
       desc: "AI真人短剧主创，完整内容产品设计", 
+      image: anhehu7Image,
       icon: <Film size={16} />,
-      link: "#小程序://芍药二维码/EtEXKAUfzKJjOwd"
+      link: "https://cropgif.net/videos/1779197812257-0116ba92-8cc6-41c4-a9ff-511fc706c499.mp4"
     },
     { 
       title: "《秋分》", 
       role: "主创团队", 
       desc: "罕见病公益短片编剧，美术设计，制作执行", 
+      image: autumnImage,
       icon: <Video size={16} /> 
     },
     { 
       title: "《梦回敦煌》", 
       role: "Demo 主创", 
       desc: "AI宣传片AIGC风格迁移与AI真人效果", 
-      icon: <Sparkles size={16} /> 
+      image: dunhuangImage,
+      icon: <Sparkles size={16} />,
+      link: "https://cropgif.net/videos/1779193333265-0df4bb3a-e44d-4060-832f-a542fec8eac8.mp4"
+    },
+    { 
+      title: "《什么提示词值得花钱买？》", 
+      role: "科普作者", 
+      desc: "AI科普视频，解析付费提示词的价值", 
+      image: promptBuyImage,
+      icon: <Video size={16} />,
+      link: "https://cropgif.net/videos/1779194384874-ffe7b0eb-bfce-4b5f-9b69-63b8396ff5be.mp4"
     }
   ];
 
