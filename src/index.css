@@ -1,0 +1,120 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&family=Noto+Serif+SC:wght@700&display=swap');
+
+@theme {
+  --color-glass: rgba(255, 255, 255, 0.015);
+  --color-glass-border: rgba(255, 255, 255, 0.04);
+  --font-sans: "Inter", "Noto Serif SC", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #ededed;
+  font-family: var(--font-sans);
+  font-weight: 200;
+  cursor: none;
+}
+
+/* Hide default cursor on interactive elements */
+a, button, [role="button"], input, textarea, select {
+  cursor: none !important;
+}
+
+/* Glassmorphism utilities */
+@layer utilities {
+  .glass-card {
+    background: var(--color-glass);
+    border: 1px solid var(--color-glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.02);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Glow tube effect on hover */
+  .glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.08), inset 0 0 15px rgba(255, 255, 255, 0.03);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.15), inset 0 0 10px rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  }
+
+  .outline-button {
+    outline: 0.5px solid rgba(255, 255, 255, 0.2);
+    outline-offset: -1px;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  }
+
+  /* Ultra-thin dividers */
+  .thin-divider {
+    height: 0.5px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.12) 15%, rgba(255, 255, 255, 0.12) 85%, transparent 100%);
+    min-width: 400px;
+  }
+  .thin-divider-vertical {
+    width: 0.5px;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.12) 10%, rgba(255, 255, 255, 0.12) 90%, transparent 100%);
+  }
+
+  /* Custom scrollbar hiding */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+@keyframes cursor-ripple {
+  0% { transform: scale(0.5); opacity: 1; border-width: 2px; }
+  100% { transform: scale(4); opacity: 0; border-width: 0px; }
+}
+.animate-cursor-ripple {
+  animation: cursor-ripple 0.4s cubic-bezier(0.1, 0, 0.3, 1) forwards;
+}
+
+/* Fade in animation */
+.fade {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navigation active state */
+.nav-link {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+.nav-link.active {
+  opacity: 1;
+}
