@@ -32,20 +32,16 @@ export default function App() {
           <div className="flex items-center gap-3">
             <span>© 2026</span>
             <span className="text-white/50">·</span>
-            <span>黄雨婷</span>
+            <span>Designed & Developed</span>
             <span className="text-white/50">·</span>
-            <span>Yuting Huang</span>
-            <span className="text-white/50">·</span>
-            <span>AI 产品经理</span>
-            <span className="text-white/50">·</span>
-            <span>AIGC 创作者</span>
+            <span>by Yuting Huang</span>
           </div>
           <div className="flex items-center gap-3">
-            <span>中国传媒大学</span>
+            <span>Communication University of China</span>
             <span className="text-white/50">·</span>
-            <span>2027届</span>
+            <span>Class of 2027</span>
             <span className="text-white/50">·</span>
-            <span>北京</span>
+            <span>Beijing</span>
           </div>
         </footer>
       </div>

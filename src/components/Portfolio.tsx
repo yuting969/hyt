@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import { ExternalLink, Sparkles, BrainCircuit, Code, Film, Video, PenTool, ArrowRight } from 'lucide-react';
+import { ExternalLink, Sparkles, BrainCircuit, Code, Film, Video, PenTool, ArrowRight, Palette } from 'lucide-react';
 import manjuImage from '../assets/project-manju.png';
 import manjuImage2 from '../assets/project-manju2.png';
 import manjuImage3 from '../assets/project-manju3.png';
@@ -16,6 +16,14 @@ import anhehu7Image from '../assets/project-anhehu7.jpg';
 import autumnImage from '../assets/project-autumn.png';
 import dunhuangImage from '../assets/project-dunhuang.png';
 import promptBuyImage from "../assets/project-prompt-buy.png";
+import brand1Image from '../assets/4.jpg';
+import brand2Image from '../assets/5.jpg';
+import brand3Image from '../assets/6.jpg';
+import brand4Image from '../assets/7.jpg';
+import brand5Image from '../assets/8.jpg';
+import brand6Image from '../assets/9.jpg';
+import brand7Image from '../assets/10.jpg';
+import brand8Image from '../assets/13.jpg';
 import ProjectModal from './ProjectModal';
 
 export default function Portfolio() {
@@ -240,7 +248,7 @@ export default function Portfolio() {
       stats: [
         { label: '清华零一学院', value: '联合推出' },
         { label: '400+ 份', value: '课程月销' },
-        { label: 'Coze & Cursor', value: '快速敏捷开发' },
+        { label: 'Coze & Cursor', value: '快速敏捷开发' }
       ],
       images: [nutsaiImage, nutsaiImage2],
       description: "转行 AI 领域的 SaaS 平台探索实践。深度参与多功能模块的敏捷搭建与产品验证：基于 Coze 工作流搭建全自动 AI 编程教学模块；运用 Cursor/Bolt.new 进行无限刷题备考模块的前端开发；设计引导式课堂问答助手及多学科快捷指令，并主导 AI 互动小说的原型验证与策略输出。",
@@ -313,7 +321,7 @@ export default function Portfolio() {
         { label: '三步流水线', value: '人机协作模式' },
       ],
       images: [insightweaverImage, insightweaverImage2],
-      description: "打破传统\"黑盒写作\"模式的创意效率工具。设计\"素材提取→人工组合→风格化生成\"的三步流水线，支持树状思维导图式纵深拓展。针对长文本大模型\"中间迷失\"与深入拓展失焦的行业难点，创新实现带重叠的滑动窗口切片算法与局部上下文定位（sourceContext），让长文本并发提取与下钻精准度实现质的突破。",
+      description: "打破传统「黑盒写作」模式的创意效率工具。设计「素材提取→人工组合→风格化生成」的三步流水线，支持树状思维导图式纵深拓展。针对长文本大模型「中间迷失」与深入拓展失焦的行业难点，创新实现带重叠的滑动窗口切片算法与局部上下文定位（sourceContext），让长文本并发提取与下钻精准度实现质的突破。",
       sections: [
         {
           title: '项目概览',
@@ -328,7 +336,7 @@ export default function Portfolio() {
               <div className="flex items-start gap-3">
                 <span className="text-white/60">•</span>
                 <div>
-                  <strong className="text-white/80">核心成效：</strong>打破"黑盒写作"，全栈操盘，用切片算法和立体思维树彻底解决长文本生成失焦痛点
+                  <strong className="text-white/80">核心成效：</strong>打破「黑盒写作」，全栈操盘，用切片算法和立体思维树彻底解决长文本生成失焦痛点
                 </div>
               </div>
             </div>
@@ -337,7 +345,7 @@ export default function Portfolio() {
         {
           title: '行业痛点：黑盒写作与大模型迷失',
           content: (
-            <p>市面上大多数写作辅助工具采用"长文本输入 -&gt; 直接输出结果"的粗暴模式。这种"黑盒模式"不仅让用户失去了对文章走向的控制权，更致命的是，大模型在面对上万字的长文本输入时，存在严重的"中间迷失（Lost in the Middle）"现象，极易漏掉极其核心的底层细节，给出的总结往往干瘪无用。</p>
+            <p>市面上大多数写作辅助工具采用"长文本输入 → 直接输出结果"的粗暴模式。这种"黑盒模式"不仅让用户失去了对文章走向的控制权，更致命的是，大模型在面对上万字的长文本输入时，存在严重的"中间迷失（Lost in the Middle）"现象，极易漏掉极其核心的底层细节，给出的总结往往干瘪无用。</p>
           )
         },
         {
@@ -397,7 +405,8 @@ export default function Portfolio() {
       role: "主创团队", 
       desc: "罕见病公益短片编剧，美术设计，制作执行", 
       image: autumnImage,
-      icon: <Video size={16} /> 
+      icon: <Video size={16} />,
+      noLink: true
     },
     { 
       title: "《梦回敦煌》", 
@@ -424,13 +433,33 @@ export default function Portfolio() {
     image: seedplanImage
   };
 
+  const brandProject = {
+    title: "品牌传播作品集",
+    role: "品牌传播专员",
+    desc: "中传品牌传播作品展示",
+    image: brand1Image,
+    images: [brand1Image, brand2Image, brand3Image, brand4Image, brand5Image, brand6Image, brand7Image, brand8Image],
+    subtitle: "品牌传播作品集",
+    tags: ["品牌设计", "传播策划", "视觉设计"],
+    sections: [
+      {
+        title: "作品集概览",
+        content: (
+          <div className="space-y-4">
+            <p className="text-white/60">本作品集收录了我在品牌传播领域的探索与实践，涵盖视觉设计、传播策划等多个维度，展示了我对品牌传播的理解与思考。</p>
+          </div>
+        )
+      }
+    ]
+  };
+
   const handleProjectClick = (project: any) => {
     setSelectedProject(project);
     setIsModalOpen(true);
   };
 
   return (
-    <section id="portfolio" className="space-y-20 py-10">
+    <section id="portfolio" className="space-y-16 py-10">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
         <div className="flex items-center gap-6 mb-16">
            <h2 className="text-xl font-thin tracking-[0.3em] uppercase glow-text text-white/80">项目作品集</h2>
@@ -469,7 +498,7 @@ export default function Portfolio() {
                         ))}
                       </div>
                       
-                      <p className="text-[13px] text-white/50 font-100 leading-relaxed tracking-wide">
+                      <p className="text-[13px] text-white/60 font-100 leading-relaxed tracking-wide">
                         {proj.description}
                       </p>
                       
@@ -479,7 +508,7 @@ export default function Portfolio() {
                     </div>
                   </div>
                   
-                  <div className={`md:w-[50%] h-56 md:h-auto order-1 md:order-${isEven ? '1' : '2'} overflow-hidden`}>
+                  <div className={`md:w-[50%] h-64 md:h-auto order-1 md:order-${isEven ? '1' : '2'} overflow-hidden`}>
                     <img 
                       src={proj.image} 
                       alt={proj.title} 
@@ -504,11 +533,15 @@ export default function Portfolio() {
                 href={proj.link || '#'} 
                 target={proj.link ? '_blank' : '_self'} 
                 rel="noreferrer"
-                className="glass-card p-5 rounded-2xl border border-white/5 hover:border-white/20 transition-all hover:-translate-y-1 duration-300 block"
+                className="glass-card p-5 rounded-2xl border border-white/5 hover:border-white/20 transition-all hover:-translate-y-1 duration-300 block group"
               >
                 {proj.image && (
                   <div className="h-32 overflow-hidden rounded-xl mb-4">
-                    <img src={proj.image} alt={proj.title} className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity" />
+                    <img 
+                      src={proj.image} 
+                      alt={proj.title} 
+                      className="w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity"
+                    />
                   </div>
                 )}
                 <div className="flex items-center gap-3 mb-3 text-white/80">
@@ -519,6 +552,11 @@ export default function Portfolio() {
                   {proj.role}
                 </div>
                 <p className="text-[12px] text-white/40 font-100 leading-relaxed tracking-wide">{proj.desc}</p>
+                {!proj.noLink && (
+                  <div className="flex items-center gap-2 text-white/30 text-[10px] tracking-[0.15em] group-hover:text-white/60 transition-colors uppercase mt-4">
+                    点击查看 <ArrowRight size={12} />
+                  </div>
+                )}
               </a>
             ))}
           </div>
@@ -531,7 +569,11 @@ export default function Portfolio() {
           </div>
           <div className="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row group hover:-translate-y-1 transition-transform duration-500">
             <div className="md:w-1/2 h-64 md:h-auto overflow-hidden">
-              <img src={filmProject.image} alt={filmProject.title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />
+              <img 
+                src={filmProject.image} 
+                alt={filmProject.title} 
+                className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              />
             </div>
             <div className="md:w-1/2 p-10 flex flex-col justify-center">
               <div className="text-[10px] font-mono text-white/30 mb-3 uppercase tracking-[0.2em]">
@@ -539,6 +581,38 @@ export default function Portfolio() {
               </div>
               <h4 className="text-2xl font-light text-white/90 tracking-widest mb-4">{filmProject.title}</h4>
               <p className="text-[14px] text-white/40 font-100 leading-relaxed tracking-wide">{filmProject.desc}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mb-16">
+          <div className="flex items-center gap-4 mb-10">
+             <h3 className="text-[12px] font-thin tracking-[0.3em] uppercase text-white/50">品牌传播作品</h3>
+             <div className="w-12 h-px bg-white/20"></div>
+          </div>
+          <div 
+            className="glass-card rounded-3xl overflow-hidden flex flex-col md:flex-row group hover:-translate-y-1 transition-transform duration-500"
+            onClick={() => handleProjectClick(brandProject)}
+          >
+            <div className="md:w-1/2 h-64 md:h-auto overflow-hidden">
+              <img 
+                src={brandProject.image} 
+                alt={brandProject.title} 
+                className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+              />
+            </div>
+            <div className="md:w-1/2 p-10 flex flex-col justify-center">
+              <div className="flex items-center gap-3 mb-3 text-white/80">
+                <Palette size={16} className="text-white/30" />
+                <div className="text-[10px] font-mono text-white/30 uppercase tracking-[0.2em]">
+                  {brandProject.role}
+                </div>
+              </div>
+              <h4 className="text-2xl font-light text-white/90 tracking-widest mb-4">{brandProject.title}</h4>
+              <p className="text-[14px] text-white/40 font-100 leading-relaxed tracking-wide mb-6">{brandProject.desc}</p>
+              <div className="flex items-center gap-2 text-white/40 text-xs tracking-[0.1em] group-hover:text-white/70 transition-colors">
+                查看详情 <ArrowRight size={14} />
+              </div>
             </div>
           </div>
         </div>

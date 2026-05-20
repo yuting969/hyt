@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { X } from 'lucide-react';
+import { X, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
+import ImageViewer from './ImageViewer';
 
 interface ProjectModalProps {
   isOpen: boolean;
@@ -17,6 +18,9 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [viewerOpen, setViewerOpen] = useState(false);
+  const [viewerImage, setViewerImage] = useState('');
+  const [isHovering, setIsHovering] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,11 +37,17 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (viewerOpen) {
+          setViewerOpen(false);
+        } else {
+          onClose();
+        }
+      }
     };
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
-  }, [onClose]);
+  }, [onClose, viewerOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +66,11 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
       return () => contentElement.removeEventListener('scroll', handleScroll);
     }
   }, [project?.images]);
+
+  const handleImageClick = (src: string) => {
+    setViewerImage(src);
+    setViewerOpen(true);
+  };
 
   return (
     <AnimatePresence>
@@ -124,23 +139,55 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
             <div className="lg:w-[45%] bg-[#0a0a0a] p-6 flex flex-col justify-center">
               <div className="relative">
                 {project.images && project.images.length > 0 && (
-                  <motion.div
-                    key={activeImageIndex}
-                    initial={{ opacity: 0, scale: 1.05 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4 }}
-                    className="rounded-[12px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
-                    style={{
-                      boxShadow: '0 8px 32px rgba(0,0,0,0.6), inset 0 2px 4px rgba(0,0,0,0.3)'
-                    }}
+                  <div 
+                    className="relative"
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
                   >
-                    <img 
-                      src={project.images[activeImageIndex]} 
-                      alt="" 
-                      className="w-full h-auto object-cover"
-                    />
-                  </motion.div>
+                    <motion.div
+                      key={activeImageIndex}
+                      initial={{ opacity: 0, scale: 1.05 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.4 }}
+                      className="rounded-[12px] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.6)] cursor-none"
+                      style={{
+                        boxShadow: '0 8px 32px rgba(0,0,0,0.6), inset 0 2px 4px rgba(0,0,0,0.3)'
+                      }}
+                      onClick={() => handleImageClick(project.images[activeImageIndex])}
+                    >
+                      <img 
+                        src={project.images[activeImageIndex]} 
+                        alt="" 
+                        className="w-full h-auto object-cover"
+                      />
+                    </motion.div>
+                    
+                    {project.images.length > 1 && isHovering && (
+                      <>
+                        <motion.button
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -10 }}
+                          onClick={() => setActiveImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length)}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 transition-all duration-300 cursor-none"
+                          style={{ backdropFilter: 'blur(8px)' }}
+                        >
+                          <ArrowLeft size={20} className="text-white/90" />
+                        </motion.button>
+                        <motion.button
+                          initial={{ opacity: 0, x: 10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: 10 }}
+                          onClick={() => setActiveImageIndex((prev) => (prev + 1) % project.images.length)}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 hover:bg-black/70 transition-all duration-300 cursor-none"
+                          style={{ backdropFilter: 'blur(8px)' }}
+                        >
+                          <ArrowRight size={20} className="text-white/90" />
+                        </motion.button>
+                      </>
+                    )}
+                  </div>
                 )}
                 
                 {project.images && project.images.length > 1 && (
@@ -163,6 +210,12 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
           </motion.div>
         </motion.div>
       )}
+      
+      <ImageViewer 
+        isOpen={viewerOpen} 
+        onClose={() => setViewerOpen(false)} 
+        imageSrc={viewerImage}
+      />
     </AnimatePresence>
   );
 }

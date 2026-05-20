@@ -1,8 +1,12 @@
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { useState } from 'react';
 import profileImage from '../assets/profile.png';
+import ImageViewer from './ImageViewer';
 
 export default function Hero() {
+  const [viewerOpen, setViewerOpen] = useState(false);
+  
   return (
     <section className="min-h-screen flex flex-col md:flex-row justify-end items-center pt-32 pb-20 px-6 gap-8 md:gap-16">
       <motion.div
@@ -46,18 +50,25 @@ export default function Hero() {
         style={{ transform: 'translate(5%, -2%)' }}
       >
         <div className="relative">
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden glass-card p-1.5">
+          <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden glass-card p-1.5 cursor-none">
             <img 
               src={profileImage} 
               alt="雨婷" 
               className="w-full h-full object-cover rounded-full saturate-125"
               style={{ objectPosition: '65% center' }}
+              onClick={() => setViewerOpen(true)}
             />
           </div>
           <div className="absolute -bottom-6 -right-6 w-20 h-20 rounded-full bg-gradient-to-br from-purple-500/15 to-blue-500/15 blur-xl"></div>
           <div className="absolute -top-3 -left-3 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500/15 to-purple-500/15 blur-lg"></div>
         </div>
       </motion.div>
+      
+      <ImageViewer 
+        isOpen={viewerOpen} 
+        onClose={() => setViewerOpen(false)} 
+        imageSrc={profileImage}
+      />
     </section>
   );
 }
