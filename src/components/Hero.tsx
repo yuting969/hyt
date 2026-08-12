@@ -36,7 +36,7 @@ export default function Hero() {
           <a href="#portfolio" className="glass-card glow-button outline-button px-8 py-4 rounded-full flex items-center gap-3 transition-all duration-300 text-xs uppercase tracking-[0.3em] font-extralight text-white/70 hover:text-white cursor-none">
             探索作品集 <ArrowRight size={14} className="opacity-50" />
           </a>
-          <a href="https://www.image2url.com/r2/default/documents/1779198417741-40b58bf5-2540-467e-ba46-922844422777.pdf" target="_blank" rel="noopener noreferrer" className="glass-card outline-button px-8 py-4 rounded-full flex items-center gap-3 transition-all duration-300 text-xs uppercase tracking-[0.3em] font-extralight text-white/70 hover:text-white cursor-none">
+          <a href="https://www.image2url.com/r2/default/documents/1786535693382-fc55c883-8605-4902-8f2e-ba1deb847546.pdf" target="_blank" rel="noopener noreferrer" className="glass-card outline-button px-8 py-4 rounded-full flex items-center gap-3 transition-all duration-300 text-xs uppercase tracking-[0.3em] font-extralight text-white/70 hover:text-white cursor-none">
             在线简历
           </a>
         </div>
