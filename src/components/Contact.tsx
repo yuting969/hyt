@@ -126,7 +126,7 @@ export default function Contact() {
               </button>
             </div>
 
-            <a href="https://www.image2url.com/r2/default/documents/1779198417741-40b58bf5-2540-467e-ba46-922844422777.pdf" target="_blank" rel="noopener noreferrer" className="mt-8 flex items-center justify-center gap-3 p-5 text-[11px] uppercase font-mono tracking-[0.3em] text-white/80 bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 rounded-full transition-all duration-300 group cursor-none glow-button w-full">
+            <a href="https://www.image2url.com/r2/default/documents/1786535693382-fc55c883-8605-4902-8f2e-ba1deb847546.pdf" target="_blank" rel="noopener noreferrer" className="mt-8 flex items-center justify-center gap-3 p-5 text-[11px] uppercase font-mono tracking-[0.3em] text-white/80 bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 rounded-full transition-all duration-300 group cursor-none glow-button w-full">
               在线简历 <MousePointerClick size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
             </a>
           </div>
