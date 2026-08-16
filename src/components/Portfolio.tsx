@@ -16,6 +16,7 @@ import anhehu7Image from '../assets/project-anhehu7.jpg';
 import autumnImage from '../assets/project-autumn.png';
 import dunhuangImage from '../assets/project-dunhuang.png';
 import promptBuyImage from "../assets/project-prompt-buy.png";
+import tiktokAiImage from '../assets/project-tiktok-ai.svg';
 import brand1Image from '../assets/4.jpg';
 import brand2Image from '../assets/5.jpg';
 import brand3Image from '../assets/6.jpg';
@@ -32,8 +33,41 @@ export default function Portfolio() {
 
   const aiProjects = [
     {
+      title: "TikTok 电商 AI 广告创意系统",
+      subtitle: "01 TikTok 广告创意方向 · 生成式 AI",
+      image: tiktokAiImage,
+      tags: ["TikTok Ads", "风险 Agent", "AIGC 工作流"],
+      stats: [
+        { label: '50% → 90%', value: '生成成功率' },
+        { label: '30% → 80%', value: '素材采纳率' },
+        { label: '4000 条/日', value: 'B-roll 产能' },
+      ],
+      images: [tiktokAiImage],
+      description: "在字节跳动 TikTok 广告创意方向，面向电商达人搭建从商品事实理解到广告素材生成的 AI 产品体系。围绕品类准入风险、Prompt 工作流和审核调测闭环，推动生成式 AI 从能生成走向可规模化生产。",
+      sections: [
+        {
+          title: '项目概览',
+          content: (
+            <div className="space-y-4">
+              <div className="flex items-start gap-3"><span className="text-white/60">•</span><div><strong className="text-white/80">我的角色：</strong>AI 产品经理｜TikTok 广告创意方向</div></div>
+              <div className="flex items-start gap-3"><span className="text-white/60">•</span><div><strong className="text-white/80">服务对象：</strong>电商广告创作者与素材生产团队</div></div>
+              <div className="flex items-start gap-3"><span className="text-white/60">•</span><div><strong className="text-white/80">核心结果：</strong>生成成功率由 50% 提升至 90%，素材采纳率由 30% 提升至 80%，日产 4000 条广告 B-roll 素材</div></div>
+            </div>
+          )
+        },
+        {
+          title: '品类准入风险 Agent',
+          content: <p>设计商品 AI 生成能力分级机制，搭建融合平台政策、法律监管、广告真实性、商品证据与模型能力的多视角风险评审框架，通过 Hard Gate 前置判断商品能否生成、适合何种生成方式，并持续用 Bad Case 与拒审原因反哺规则库。</p>
+        },
+        {
+          title: 'AIGC 工作流与审核闭环',
+          content: <p>将端到端 Prompt 重构为“商品事实理解 → 差异化素材策略 → 逐条分镜 → 首帧 → 图生视频”的模块化工作流；同时搭建文本、图片、视频三层审核及重新生成闭环，推动输入治理、并发生成与失败自动重跑，减少人工审核耗时约 2/3。</p>
+        }
+      ]
+    },
+    {
       title: "AI 短剧全自动生产工作流",
-      subtitle: "01 AI 短剧全自动生产工作流",
+      subtitle: "02 AI 短剧全自动生产工作流",
       image: manjuImage,
       tags: ["并发生产", "工作流设计", "API驱动"],
       stats: [
@@ -102,7 +136,7 @@ export default function Portfolio() {
     },
     {
       title: "精品漫剧 · SOP & 团队管理",
-      subtitle: "02 精品漫剧 · SOP & 团队管理",
+      subtitle: "03 精品漫剧 · SOP & 团队管理",
       image: manjuImage2,
       tags: ["团队管理", "成本控制", "商业闭环"],
       stats: [
@@ -173,7 +207,7 @@ export default function Portfolio() {
     },
     {
       title: "PopWords · 泡泡单词 App",
-      subtitle: "03 PopWords · AI 词汇 App",
+      subtitle: "04 PopWords · AI 词汇 App",
       image: popwordsImage,
       tags: ["产品0-1", "App上架", "Vibecoding"],
       stats: [
@@ -242,7 +276,7 @@ export default function Portfolio() {
     },
     {
       title: "坚果 AI 学习平台",
-      subtitle: "04 坚果 AI 学习平台",
+      subtitle: "05 坚果 AI 学习平台",
       image: nutsaiImage,
       tags: ["AI教育", "SaaS平台", "敏捷开发"],
       stats: [
@@ -313,7 +347,7 @@ export default function Portfolio() {
     },
     {
       title: "InsightWeaver · AI 辅助拆解与创作工具",
-      subtitle: "05 InsightWeaver · AI 创意工具",
+      subtitle: "06 InsightWeaver · AI 创意工具",
       image: insightweaverImage,
       tags: ["效率工具", "文案生产", "算法创新"],
       stats: [

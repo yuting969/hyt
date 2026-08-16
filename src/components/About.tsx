@@ -19,12 +19,12 @@ export default function About() {
     },
     {
       title: '我的超能力',
-      content: '懂用户、懂内容、懂创作者的AI产品经理。一年积累多项0-1产品经验，带领部门实现月营收10万。',
+      content: '懂用户、懂内容、懂创作者的AI产品经理。能把内容判断、工作流设计与生成式技术连接起来，用产品方法把创意变成规模化产能。',
       year: ''
     },
     {
-      title: '希望',
-      content: '做 AI 时代的 Builder，也做连接技术的 Communicator。',
+      title: '现在',
+      content: '在字节跳动 TikTok 广告创意方向，探索如何让 AI 更可靠、更高效地服务真实商业内容。',
       year: ''
     }
   ];
@@ -75,6 +75,7 @@ function Timeline() {
     { date: '2025.11', title: '第一次成为部门小leader', desc: '漫剧业务负责人', milestone: false, type: 'milestone' },
     { date: '2026.01', title: '部门月营收破10万', desc: '', milestone: false, type: 'milestone' },
     { date: '2026.02', title: '结束为期一年的AI初创实习，新的开始', desc: '', milestone: false, type: 'work' },
+    { date: '2026.06–至今', title: '字节跳动 · TikTok 广告创意方向', desc: 'AI产品经理｜电商生成式 AI', milestone: true, type: 'work' },
   ];
 
   return (
