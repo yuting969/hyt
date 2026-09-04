@@ -16,7 +16,7 @@ import anhehu7Image from '../assets/project-anhehu7.jpg';
 import autumnImage from '../assets/project-autumn.png';
 import dunhuangImage from '../assets/project-dunhuang.png';
 import promptBuyImage from "../assets/project-prompt-buy.png";
-import tiktokAiImage from '../assets/project-tiktok-ai.svg';
+import tiktokAiImage from '../assets/project-tiktok-ai.png';
 import brand1Image from '../assets/4.jpg';
 import brand2Image from '../assets/5.jpg';
 import brand3Image from '../assets/6.jpg';
